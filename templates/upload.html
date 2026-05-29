@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Notes</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+ 
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <div class="container">
+
+        <h1>Upload Study Notes</h1>
+
+        <p>
+            Upload your PDF notes and let AI generate summaries,
+            quizzes, and smart study content instantly.
+        </p>
+
+
+        <!-- =========================
+             UPLOAD FORM
+        ========================== -->
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input
+                class="file-input"
+                type="file"
+                name="pdf_file"
+                required
+            >
+
+            <br>
+
+            <button type="submit">
+                Upload PDF
+            </button>
+
+        </form>
+
+
+        <!-- =========================
+             EXTRACTED TEXT
+        ========================== -->
+
+        {% if extracted_text %}
+
+        <div class="result-box">
+
+            <h2>Extracted Text</h2>
+
+            <p class="ai-text">
+                {{ extracted_text }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- =========================
+             AI SUMMARY
+        ========================== -->
+
+        {% if summary %}
+
+        <div class="result-box">
+
+            <h2>AI Summary</h2>
+
+            <p class="ai-text">
+                {{ summary }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- =========================
+             AI QUIZ
+        ========================== -->
+
+        {% if quiz %}
+
+        <div class="result-box">
+
+            <h2>AI Quiz</h2>
+
+            <p class="ai-text">
+                {{ quiz }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
+{% endblock %}

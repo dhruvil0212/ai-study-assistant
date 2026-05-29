@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>Chat With Notes</h1>
+
+    <p>
+        Ask questions about your uploaded study material.
+    </p>
+
+    <form method="POST">
+
+        <textarea
+            class="question-box"
+            name="question"
+            placeholder="Ask anything about your notes..."
+            required
+        ></textarea>
+
+        <br>
+
+        <button type="submit">
+            Ask AI
+        </button>
+
+    </form>
+
+    {% if answer %}
+
+    <div class="result-box">
+
+        <h2>AI Answer</h2>
+
+        <p class="ai-text">
+            {{ answer }}
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
