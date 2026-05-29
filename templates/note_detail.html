@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>{{ note[1] }}</h1>
+
+    <div class="result-box">
+
+        <h2>AI Summary</h2>
+
+        <p class="ai-text">
+            {{ note[3] }}
+        </p>
+
+    </div>
+
+    <div class="result-box">
+
+        <h2>AI Quiz</h2>
+
+        <p class="ai-text">
+            {{ note[4] }}
+        </p>
+
+    </div>
+    <a href="/delete/{{ note[0] }}">
+    <button class="delete-btn">
+        Delete Note
+    </button>
+    <a href="/download/{{ note[0] }}">
+    <button>
+        Download PDF
+    </button>
+</a>
+</a>
+
+</div>
+
+{% endblock %}  

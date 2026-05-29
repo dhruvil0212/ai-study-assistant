@@ -37,7 +37,18 @@
              UPLOAD FORM
         ========================== -->
 
-        <form method="POST" enctype="multipart/form-data">
+        <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                    onsubmit="showLoader()"
+                >
+                <div id="loader" class="loader-container">
+
+    <div class="loader"></div>
+
+    <p>AI is analyzing your notes...</p>
+
+</div>
 
             <input
                 class="file-input"
@@ -110,9 +121,31 @@
         </div>
 
         {% endif %}
+        {% if flashcards %}
+
+<div class="result-box">
+
+    <h2>AI Flashcards</h2>
+
+    <p class="ai-text">
+        {{ flashcards }}
+    </p>
+
+</div>
+
+{% endif %}
 
     </div>
 
 </body>
 </html>
+<script>
+
+function showLoader(){
+
+    document.getElementById("loader").style.display = "flex";
+
+}
+
+</script>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>Study History</h1>
+
+    <p>
+        View previously uploaded AI study notes.
+    </p>
+
+    {% for note in notes %}
+
+    <div class="result-box">
+
+        <h2>
+    <a class="note-link" href="/note/{{ note[0] }}">
+        {{ note[1] }}
+    </a>
+</h2>
+
+        <p class="ai-text">
+
+            <strong>Summary:</strong>
+
+            {{ note[3][:300] }}...
+
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
